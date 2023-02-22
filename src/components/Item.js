@@ -2,9 +2,9 @@ import React, { useState } from "react";
 
 function Item({ name, category }) {
 
+  const [checkIfItemNeeded, setCheck]=useState(true);
   const [className, setClassName]=useState('');
-  const [buttonText, setButtonText]=useState("Add to Cart")
-  let checkIfItemNeeded=true;
+  const [buttonText, setButtonText]=useState("Add to Cart");
 
   function handleCartButton()
   {
@@ -12,15 +12,14 @@ function Item({ name, category }) {
     if (checkIfItemNeeded)
     {
       setClassName("in-cart");
-      setButtonText("Remove from Cart")
+      setButtonText("Remove from Cart");
     }
     else 
     {
       setClassName("");
       setButtonText("Add to Cart");
     }
-    checkIfItemNeeded = !checkIfItemNeeded;
-    console.log(checkIfItemNeeded);
+    setCheck(!checkIfItemNeeded);
   }
 
   return (
